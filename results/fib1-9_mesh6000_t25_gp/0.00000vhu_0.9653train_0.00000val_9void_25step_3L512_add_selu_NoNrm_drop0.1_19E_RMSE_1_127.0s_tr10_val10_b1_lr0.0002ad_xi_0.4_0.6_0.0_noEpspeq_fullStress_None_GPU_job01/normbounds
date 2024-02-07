@@ -1,0 +1,8 @@
+geomFeatNorm True 0 0.4795075772198376 mean std
+edgeFeatNorm True 0 0.02582770399749279 mean std
+macroStrainNorm True 0 0.020996306735429522 mean std
+elemStrainNorm True -0.0008448234875686467 0.026680301874876022 mean std
+elemepspNorm True 0 1 mean std
+elemepspeqNorm True 0 0.06839407980442047 mean std
+homStressNorm True 0 7.643704203637918 mean std
+elemStressNorm True -1.7086033821105957 15.572765350341797 mean std
