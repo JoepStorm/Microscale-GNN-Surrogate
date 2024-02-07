@@ -1,0 +1,20 @@
+[setup]
+type = stiff_meshsize
+name = 65_510
+model = 65_smallRVE/1.10036vhu_0.30318val_0.2825train_9void_25step_5L512_add_selu_NoNrm_drop0.1_721E_RMSE_510_287875.9s_tr4000_val2000_b8_lr0.0002ad_xi_0.4_0.6_0.0_fullStrain_None_GPU_job510
+trim = True
+print_stiffness = True
+plot_field = False
+plot_finalonly = True
+
+[plotting]
+plot_representative = [0,0,0]
+plot_train = []
+plot_val = []
+plot_extra = []
+
+[specifics]
+extrapolate_num = 1
+stiff_mode = randdir
+representative_based_on = field
+time_exrap_baseline = True

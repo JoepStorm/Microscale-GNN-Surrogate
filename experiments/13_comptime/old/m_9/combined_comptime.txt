@@ -1,0 +1,4 @@
+stress_stiff_tot_time 284.76283860206604
+stress_stiff_mat_time 31.51231336593628
+stress_tot_time 65.27183532714844
+stress_mat_time 33.31034255027771

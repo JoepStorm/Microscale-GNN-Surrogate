@@ -1,0 +1,20 @@
+[setup]
+type = testquantity
+name = 62_dropout
+model = 62_dropout/1.25352vhu_0.45862val_0.4115train_9void_25step_5L512_add_selu_NoNrm_drop0.1_708E_RMSE_442_378291.2s_tr4000_val2000_b8_lr0.0002ad_xi_0.4_0.6_0.0_fullStrain_None_GPU_job442
+trim = True
+print_stiffness = False
+plot_field = True
+plot_finalonly = True
+
+[plotting]
+plot_representative = [0,0,0]
+plot_train = []
+plot_val = []
+plot_extra = []
+
+[specifics]
+extrapolate_num = 9
+stiff_mode = zeros
+representative_based_on = homstress
+time_exrap_baseline = True

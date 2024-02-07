@@ -1,0 +1,20 @@
+[setup]
+type = unloading
+name = 69_hyper_noGP2_v2/583_1005
+model = 69_hyper_noGP2_v2/0.99698vhu_0.35224val_0.1569train_9void_25step_3L512_add_selu_NoNrm_drop0.0_934E_RMSE_583_378101.7s_tr4000_val2000_b8_lr0.0002ad_xi_0.2_0.8_0.0_fullStrain_None_GPU_job583
+trim = True
+print_stiffness = False
+plot_field = True
+plot_finalonly = True
+plot_representative = [0, 0, 0]
+
+[plotting]
+plot_train = []
+plot_val = []
+plot_extra = [1135]
+
+[specifics]
+extrapolate_num = 36
+stiff_mode = randdir
+representative_based_on = homstress
+time_exrap_baseline = True

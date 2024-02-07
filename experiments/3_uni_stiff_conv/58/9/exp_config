@@ -1,0 +1,19 @@
+[setup]
+type = stiff_meshsize
+name = 58
+model = 58_xi_field_1-9/376_xi_.4_.6_.0
+trim = True
+print_stiffness = True
+plot_field = False
+plot_finalonly = True
+plot_representative = [0, 0, 0]
+
+[plotting]
+plot_train = []
+plot_val = []
+plot_extra = []
+
+[specifics]
+extrapolate_num = 9
+stiff_mode = randdir
+representative_based_on = field

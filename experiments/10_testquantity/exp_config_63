@@ -1,0 +1,20 @@
+[setup]
+type = testquantity
+name = 63_hyper_noGP
+model = 63_hyper_noGP/0.92816vhu_0.34299val_0.2710train_9void_25step_5L512_add_selu_NoNrm_drop0.1_732E_RMSE_457_378424.6s_tr4000_val2000_b8_lr0.0002ad_xi_0.2_0.8_0.0_fullStrain_None_GPU_job457
+trim = True
+print_stiffness = False
+plot_field = True
+plot_finalonly = True
+
+[plotting]
+plot_representative = [0,0,0]
+plot_train = []
+plot_val = []
+plot_extra = []
+
+[specifics]
+extrapolate_num = 9
+stiff_mode = zeros
+representative_based_on = homstress
+time_exrap_baseline = True
