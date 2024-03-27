@@ -603,3 +603,65 @@ plot_t_error(max_eps_field, base_max_eps_field, train_steps, 'eps_Max', f'Max ' 
 plot_t_error(mean_sig_field, base_mean_sig_field, train_steps, 'sig_Average', f'Mean ' + r'$ ||\hat{\sigma}^{\omega}-\sigma^{\omega}|| \;[MPA]$', extra_data = mean_sig_field_nomat )
 plot_t_error(max_sig_field, base_max_sig_field, train_steps, 'sig_Max', f'Max ' + r'$ ||\hat{\sigma}^{\omega}-\sigma^{\omega}|| \;[MPA]$', extra_data = max_sig_field_nomat)
 plot_t_error(mean_homsig, base_mean_homsig, train_steps, 'sig_hom', r'$ ||\hat{\sigma}^{\Omega}-\sigma^{\Omega}|| \;[MPA]$', extra_data = mean_homsig_nomat)
+
+"""
+Experiment 14 Volume fraction
+"""
+main_folder = '../experiments/14_vfrac/58_376_vfrac/'
+
+x_arr = np.arange(1, 14)
+loss_arr = []
+field_strain_losses = []
+field_stress_losses = []
+hom_stress_losses = []
+
+scatter_losses = np.empty((3, len(x_arr), 500))
+
+for num_voids in x_arr:
+    losses = pandas.read_csv(f"{main_folder}{num_voids}/test_loss.txt", sep=',', header=None)
+
+    loss_arr.append(losses.iloc[1, 0])
+    field_strain_losses.append(losses.iloc[1, 1])
+    field_stress_losses.append(losses.iloc[1, 2])
+    hom_stress_losses.append(losses.iloc[1, 3])
+
+    all_losses = pandas.read_csv(f"{main_folder}{num_voids}/all_test_losses.txt", header=None)
+    # loss, strain_field_loss, stress_field_loss, hom_loss, strain_field_loss_norm, stress_field_loss_norm, hom_loss_norm
+    scatter_losses[0, num_voids-1] = all_losses.iloc[:, 3]
+    scatter_losses[1, num_voids-1] = all_losses.iloc[:, 2]
+    scatter_losses[2, num_voids-1] = all_losses.iloc[:, 1]
+
+xlabels = []
+for num_voids in x_arr:
+    xlabels.append(f"{0.4/9*num_voids*100:.0f}\n{num_voids}")
+
+# Per loss
+fig, ax = plt.subplots(3,1, figsize=(4, 3.5), sharex=True)
+plot3 = ax[0].plot(x_arr, hom_stress_losses, color=colors[0])
+plot2 = ax[1].plot(x_arr, field_stress_losses, color=colors[0])
+plot1 = ax[2].plot(x_arr, field_strain_losses, color=colors[0])
+
+ax[0].tick_params(axis='x', which='minor', bottom=False, top=False)
+ax[1].tick_params(axis='x', which='minor', bottom=False, top=False)
+ax[2].tick_params(axis='x', which='minor', bottom=False, top=False)
+
+ax[2].set_xticks(np.unique(x_arr))
+ax[2].set_xticklabels(xlabels, fontsize=14)
+ax[0].tick_params(axis='y', labelsize=14)
+ax[1].tick_params(axis='y', labelsize=14)
+ax[2].tick_params(axis='y', labelsize=14)
+ax[0].set_ylim(ymin=0)
+ax[1].set_ylim(ymin=5)
+
+ax[2].set_xlabel('$V_{frac}$ $[\%]$ \n $n_v$ $[-]$', fontsize=14)
+ax[0].set_ylabel('$\mathcal{L} \sigma^{\Omega}$\n$[MPa]$', fontsize=14)
+ax[1].set_ylabel('$\mathcal{L} \sigma^{\omega}$\n$[MPa]$', fontsize=14)
+ax[2].set_ylabel(r'$\mathcal{L} \varepsilon^{\omega}$ $[-]$', fontsize=14)
+ax[0].yaxis.set_label_coords(-0.15, 0.5)
+ax[1].yaxis.set_label_coords(-0.15, 0.5)
+ax[2].yaxis.set_label_coords(-0.19, 0.5)
+# ax[3].set_ylabel(r'$\mathcal{L} \sigma^{\Omega}$', fontsize=14)
+
+print("saving figure...")
+plt.savefig(f'{main_folder}/vfrac_sep.pdf', bbox_inches='tight', pad_inches=0.01, dpi=300, format='pdf')
+plt.savefig(f'{main_folder}/vfrac_sep.png', bbox_inches='tight', pad_inches=0.01, dpi=300, format='png')

@@ -12,6 +12,7 @@ Some tests do not cancel when finished, and continue to the plotting phase, wher
 
 import os
 import time
+import sys
 
 import numpy as np
 import torch
@@ -51,9 +52,10 @@ Manually select experiment
 # experiment = '2_unloading'
 # experiment = '3_uni_stiff_conv'
 # experiment = '4_time_extrap'
-experiment = '5_plot'
+# experiment = '5_plot'
 # experiment = '10_testquantity'
 # experiment = '13_comptime'
+experiment = '14_vfrac'
 
 """
 Load settings
@@ -72,6 +74,11 @@ settings['seed'] = random_seed
 # settings = read_config(f'{model_dirpath}/ConfigGNN_transfer')
 
 settings['plot_fullfield'] = configuration['plot_field']
+
+batch_job = False
+sys_args = sys.argv
+if len(sys_args) > 1:       # There is a parameter given, so part of batch job.
+    batch_job = int(sys_args[1])
 
 dirstring = f"../experiments/{experiment}/{configuration['name']}"
 
@@ -125,6 +132,19 @@ elif test_type == 'testquantity':  # X
     settings['transfersteps'] = 25
     settings['transferdir'] = f'testset/fib1-9_mesh2000_t25_gp'
     settings['transferend'] = 2020
+elif test_type == 'vfrac':
+    # We separate between training and transfer volume fractions, which are then used in graphDatasets.py
+    settings['vfrac_train'] = settings['vfrac']
+
+    settings['transferend'] = 520
+    if batch_job is not None:  # batch_job overwrites the number of voids
+        configuration["extrapolate_num"] = batch_job
+    settings['transferdir'] = f'test_vfrac/fib{configuration["extrapolate_num"]}_mesh500_t25_gp4'
+    dirstring += f"/{configuration['extrapolate_num']}"
+
+    # Compute actual used vfrac -> e.g. 0.4 / 9 * 1
+    settings['vfrac_trans'] = settings['vfrac'] / settings['num_fib_rve'] * configuration['extrapolate_num']
+
 
 settings['transferdata'] = f"../data/{settings['transferdir']}"
 settings['transfermesh'] = f"../meshes/{settings['transferdir']}"
