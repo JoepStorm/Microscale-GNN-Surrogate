@@ -1,0 +1,20 @@
+GPU is available
+dirpath: results/58_xi_field_1-9/376_xi_.4_.6_.0/ConfigGNN
+Loading data...
+Using existing normalization bounds.
+Loading transfer data
+Loading strains...
+Obtained bounds. Adding noise...
+Normalizing strains...
+Normalized strains. Normalizing eps_p & eps_p_eq...
+Fibers: 9, with meshes from meshdir: meshes/fib1-9_mesh6000_t25_gp4 
+Creating graph 0 from meshes/fib1-9_mesh6000_t25_gp4/m_0.msh
+Creating graph 100 from dogbone_GPU/m25_t25/meshes/m_80.msh
+Creating graph 200 from dogbone_GPU/m25_t25/meshes/m_180.msh
+Creating graph 300 from dogbone_GPU/m25_t25/meshes/m_280.msh
+Creating graph 400 from dogbone_GPU/m25_t25/meshes/m_380.msh
+Creating graph 500 from dogbone_GPU/m25_t25/meshes/m_480.msh
+Datasets created. Creating dataloaders..
+L:5 HN:512 act:selu
+Creating directory experiments/13_comptime/m_25
+Succesfully computed time.

@@ -1,0 +1,27 @@
+name: GNN_micro
+channels:
+  - pytorch
+  - nvidia
+  - pyg
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11.7
+  - numpy
+  - nvidia::cuda-toolkit=12.1.0
+  - pytorch::pytorch=2.2.0
+  - pytorch::torchvision
+  - pytorch::torchaudio
+  - pytorch::pytorch-cuda=12.1.0
+  - pyg::pyg
+  - pip
+  - tqdm
+  - matplotlib
+  - pandas
+  - scikit-learn
+  - pip:
+    - "--editable=git+https://github.com/JoepStorm/SciencePlotStyles"
+    - polars
+    - pypdf2
+
+

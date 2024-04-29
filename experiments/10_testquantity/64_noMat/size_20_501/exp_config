@@ -1,0 +1,19 @@
+[setup]
+type = testquantity
+name = 64_noMat
+model = 64_noMat/1.15874vhu_0.45475val_0.3970train_9void_25step_5L512_add_selu_NoNrm_drop0.1_1044E_RMSE_480_378123.1s_tr4000_val2000_b8_lr0.0002ad_xi_0.4_0.6_0.0_noEpspeq_fullStress_None_GPU_job480
+trim = True
+print_stiffness = False
+plot_field = True
+plot_finalonly = True
+plot_representative = [0, 0, 1]
+
+[plotting]
+plot_train = []
+plot_val = []
+plot_extra = [47]
+
+[specifics]
+extrapolate_num = 9
+stiff_mode = zeros
+representative_based_on = homstress

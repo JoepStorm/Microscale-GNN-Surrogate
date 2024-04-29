@@ -1,0 +1,20 @@
+[setup]
+type = unloading
+name = 58_xi_396
+model = 58_xi_field_1-9/396_xi_.4_.6_.0
+trim = True
+print_stiffness = False
+plot_field = True
+plot_finalonly = True
+plot_representative = [0, 0, 3]
+
+[plotting]
+plot_train = []
+plot_val = []
+plot_extra = [ 952 1786 1167]
+
+[specifics]
+extrapolate_num = 36
+stiff_mode = randdir
+representative_based_on = homstress
+time_exrap_baseline = True

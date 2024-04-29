@@ -1,0 +1,20 @@
+[setup]
+type = unloading
+name = 68_noepspeq_rep_573/
+model = 68_noepspeq/2.87013vhu_0.57542val_0.2240train_9void_25step_5L512_add_selu_NoNrm_drop0.1_557E_RMSE_573_298024.2s_tr4000_val2000_b8_lr0.0002ad_xi_1.0_0.0_0.0_noEpspeq_fullStrain_None_GPU_job573
+trim = True
+print_stiffness = False
+plot_field = True
+plot_finalonly = True
+plot_representative = [0, 0, 3]
+
+[plotting]
+plot_train = []
+plot_val = []
+plot_extra = [1663   23  205]
+
+[specifics]
+extrapolate_num = 36
+stiff_mode = randdir
+representative_based_on = homstress
+time_exrap_baseline = True

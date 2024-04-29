@@ -1,0 +1,20 @@
+[setup]
+type = vfrac
+name = 58_376_vfrac
+model = 58_xi_field_1-9/376_xi_.4_.6_.0
+trim = True
+print_stiffness = False
+plot_field = True
+plot_finalonly = True
+plot_representative = [0, 0, 3]
+
+[plotting]
+plot_train = []
+plot_val = []
+plot_extra = [269 439  15]
+
+[specifics]
+extrapolate_num = 4
+stiff_mode = zeros
+representative_based_on = homstress
+time_exrap_baseline = False

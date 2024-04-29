@@ -1,0 +1,20 @@
+[setup]
+type = plot
+name = 58_376_49/422
+model = 58_xi_field_1-9/376_xi_.4_.6_.0
+trim = True
+print_stiffness = False
+plot_field = True
+plot_finalonly = False
+plot_representative = [0, 0, 0]
+
+[plotting]
+plot_train = []
+plot_val = []
+plot_extra = [402]
+
+[specifics]
+extrapolate_num = 9
+stiff_mode = zeros
+representative_based_on = field
+time_exrap_baseline = True

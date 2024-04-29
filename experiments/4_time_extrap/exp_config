@@ -1,0 +1,20 @@
+[setup]
+type = time_extrap
+name = GP_376
+model = 58_xi_field_1-9/376_xi_.4_.6_.0
+trim = True
+print_stiffness = False
+plot_field = True
+plot_finalonly = True
+
+[plotting]
+plot_representative = [0,0,0]
+plot_train = []
+plot_val = []
+plot_extra = []
+
+[specifics]
+extrapolate_num = 9
+stiff_mode = zeros
+representative_based_on = homstress
+time_exrap_baseline = True
