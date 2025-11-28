@@ -23,14 +23,20 @@ def createDataset(settings, init_tensor_dtype, macro_vec_train, homstress_train,
             homstress = homstress_train
             index_macro_vec = m
             steps_ahead = settings['steps_ahead']
-            settings['vfrac'] = settings['vfrac_train']
+            try:
+                settings['vfrac'] = settings['vfrac_train']
+            except:
+                print(f"vfrac setting not found in settings dictionary. This is okay for non-vfrac experiments.")
         else:
             meshfile = f"{settings['transfermesh']}/m_{m-settings['validationend']}.msh"
             macro_vec = macro_vec_transfer
             homstress = homstress_transfer
             index_macro_vec = m - settings['validationend']
             steps_ahead = settings['transfersteps']
-            settings['vfrac'] = settings['vfrac_trans']
+            try:
+                settings['vfrac'] = settings['vfrac_trans']
+            except:
+                print(f"vfrac setting not found in settings dictionary. This is okay for non-vfrac experiments.")
 
         if m % 100 == 0:
             print(f"Creating graph {m} from {meshfile}")
